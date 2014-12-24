@@ -30,6 +30,9 @@ main = () ->
   argv = optimist
       .usage('Usage: $0 -input [csv] -output [csv] -modifier [coffee]')
       .demand(['input','output','modifier'])
+      .describe('input', 'Your csv data file in accepted format')
+      .describe('output', 'The name of result csv file')
+      .describe('modifier', 'The file with coffeescript modification code')
       .argv
 
   modifierText = fs.readFileSync(argv.modifier, "utf8")
